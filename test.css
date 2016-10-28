@@ -35,7 +35,7 @@ p {
   cursor: pointer;
 }
 .tile.on {
-  background:url(../images/Open.png);
+  background:url(../Open.png);
 }
 .clear {
   clear: both;
