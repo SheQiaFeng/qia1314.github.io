@@ -9,18 +9,26 @@
     <!--<script src="http://imgcache.gtimg.cn/c/=/club/mobile_web/zepto.min.js,/club/common/lib/zero/zero.m.min-5.1.1.js,/club/common/lib/avalon.js?max_age=86400000"></script>-->
     <script src="jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
     <!--<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>-->
-    <script>
+  
+   	
+   <!--<script>
         function print1()
         {  alert("如何才算赢：使拼板全部变成吃货头像");}
-    </script>
+    </script>-->
+    
 </head>
 <body ms-controller="model">
-    <h1>翻转拼图游戏</h1>
-    <button onclick="print1()">玩法说明</button>
-    棋盘大小：{{sz}} x {{sz}}
+    <h1>抓狂小游戏</h1>
+    <p>玩法说明："如何才算赢：使拼板全部变成吃货头像"</p>
+    
     <div id="board">
         <div class="tile" ms-class="on:el==1" ms-class-1="clear:$index%sz==0"
              ms-repeat="grid" ms-click="tile_click"></div>
+    </div>
+    <div id="text">棋盘大小：{{sz}} x {{sz}}</div>
+    <div id="buttondiv">
+    	<button id="button1" onclick="up()">提高难度</button>
+    	<button id="button2"  onclick="down()">降低难度</button>
     </div>
     <script>
         var vm = avalon.define('model', function(vm) {
@@ -61,15 +69,15 @@
         vm.sz = 3;
         function up(){
             vm.sz++;
-            if(vm.sz>15){alert("别乱点");vm.sz=14;}
+            if(vm.sz>6){alert("已经是最后一关了");vm.sz=6;}
         }
         function down(){
             vm.sz--;
-            if(vm.sz==1){alert("不能再降了");vm.sz=2;}
+            if(vm.sz==1){alert("这尼玛，这难度你还要再降？");vm.sz=2;}
         }
 
     </script>
-    <button onclick="up()">提高难度</button>
-    <button onclick="down()">降低难度</button>
+
+    
 </body>
 </html>
